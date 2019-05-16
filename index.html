@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background: url(img/bc-pic.jpg);
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  width: 44px;
+  position: absolute;
+  top: 0px;
+  left: 16px;
+  border-radius: 0px 2p;
+  background-color: #096c91;
+  border-bottom-left-radius: 20px;
+  height: 72px;
+}
+.topleft p{
+  text-align: center;
+  font-family:"Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+.middle {
+  position: absolute;
+  top: 85%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #08688c;
+}
+
+hr {
+    margin: auto;
+    width: 100%;
+    border: 2px solid #096c91;
+}
+
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+    <p>JS</p>
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p id="demo" style="font-size:30px"></p>
+  </div>
+</div>
+
+
+
+<script>
+// Set the date  counting down to
+var countDownDate = new Date("Jun 6, 2019 15:37:25").getTime();
+
+// Update the count down every 1 second
+var countdownfunction = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+  
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+  
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  // Output the result 
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  
+  // If the count down is over, show somthing
+  if (distance < 0) {
+    clearInterval(countdownfunction);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
